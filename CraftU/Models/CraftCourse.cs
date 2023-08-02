@@ -9,5 +9,7 @@ namespace CraftU.Models
         public string CourseDate { get; set; }
         public List<Supply> Supplies { get; set; }
         public List<Student> Students { get; set; }
+        public List<CraftCourseStudent> JoinEntities {get;}
+        public List<CraftCourseSupply> JoinMoreEntities {get;}
     }
 }

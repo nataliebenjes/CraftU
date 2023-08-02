@@ -1,15 +1,12 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using Craft_U.Models;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Craft_U.Controllers;
+namespace CraftU.Controllers;
 
 public class HomeController : Controller
 {
-
-    public IActionResult Index()
+    [HttpGet("/")]
+    public ActionResult Index()
     {
         return View();
     }
-   
 }

@@ -1,0 +1,22 @@
+@{
+    Layout = "_Layout";
+}
+
+@using CraftU.Models;
+
+<h1>Courses</h1>
+
+@if (@Model.Count == 0)
+{
+    <h3>No courses have been added yet.</h3>
+}
+
+<ul>
+    @foreach (CraftCourse craftCourse in Model)
+    {
+        <li>@Html.ActionLink($"{craftCourse.CourseName}", "Details", new {id = craftCourse.CraftCourseId})</li>
+    }
+</ul>
+
+<p>@Html.ActionLink("Add a new class", "Create")</p>
+<p>@Html.ActionLink("Back to home page", "Index", "Home")</p>

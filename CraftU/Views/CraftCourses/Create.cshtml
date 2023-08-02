@@ -1,0 +1,18 @@
+@{
+    Layout = "_Layout";
+}
+
+@model CraftU.Models.CraftCourse
+
+<h1>Add a craft course</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.CourseName)
+    @Html.TextBoxFor(model => model.CourseName)
+    @Html.LabelFor(model => model.CourseDate)
+    @Html.TextBoxFor(model => model.CourseDate)
+    <input type="submit" value="Add a new course" />
+}
+<p>@Html.ActionLink("Show all courses", "Index")</p>
+
