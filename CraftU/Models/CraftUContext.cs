@@ -4,7 +4,7 @@ namespace CraftU.Models
 {
     public class CraftUContext : DbContext
     {
-        public DbSet<Craft> Crafts { get; set; }
+        public DbSet<CraftCourse> CraftCourses { get; set; }
         public DbSet<Supply> Supplies { get; set; }
         public DbSet<Student> Suudents { get; set; }
 
