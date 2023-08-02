@@ -1,0 +1,41 @@
+@{
+  Layout = "_Layout";
+}
+
+@model CraftU.Models.CraftCourse;
+@using CraftU.Models;
+@using System.Collections.Generic;
+
+<h2>Course Details</h2>
+
+<h3>@Html.DisplayNameFor(model => model.CourseName): @Html.DisplayFor(model => model.CourseName)</h3>
+
+@if(@Model.Supplies.Count == 0)
+{
+<p>This course does not have  a supply list</p>
+}
+else
+{
+    <h4>Supply list</h4>
+    <ul>
+        @foreach(Supply supply in Model.Supplies)
+        {
+            string supplies = "";
+            @if(supply.JoinEntities.Count == 0)
+            {
+                supplies = "This course does not have any supplies affiliated with it";
+            }
+            else
+            {
+                List<string> joinList = new List<string>();
+            }
+            supplies = String.Join(", ", joinList);
+
+        }
+        </ul>
+}
+
+<p>@Html.ActionLink("Back to courses", "Index")</p>
+<p>@Html.ActionLink("Edit Courses", "Edit", new { id = Model.CraftCourseId })</p>
+<p>@Html.ActionLink("Delete Courses", "Delete", new { id = Model.CraftCourseId })</p>
+<p>@Html.ActionLink("Add new supply", "Create", "Supply")</p>

@@ -1,0 +1,23 @@
+@{
+    Layout = "_Layout"
+}
+
+@model CraftU.Models.CraftCourse
+
+<h2>Edit a course, dude.</h2>
+
+<h4>Edit this course: @Html.DisplayFor(model => model.CourseName)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.CraftCourseId)
+
+    @Html.LableFor(model => model.CourseName)
+    @Html.EditorFor(model => model.CourseName)
+
+    @Html.LableFor(model => model.CourseDate)
+    @Html.EditorFor(model => model.CourseDate)
+
+    <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to course list", "Index")</p>

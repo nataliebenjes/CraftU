@@ -29,12 +29,28 @@ namespace CraftU.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-        public ActionResult Details (int id)
+        public ActionResult Details(int id)
         {
             CraftCourse thisCraftCourse = _db.CraftCourses
-            .Include(supply => supply.JoinEntities)
+            .Include(craftCourse => craftCourse.Supplies)
+            .ThenInclude(supply => supply.JoinEntities)
+            .Include(craftCourse => craftCourse.Students)
+            .ThenInclude(student => student.JoinEntities)
             .FirstOrDefault(craftCourse => craftCourse.CraftCourseId == id);
+
             return View(thisCraftCourse);
         }
+         public ActionResult Edit(int id)
+            {
+                CraftCourse thisCraftCourse = _db.CraftCourses.FirstOrDefault(craftCourse.CraftCourseId == id);
+                return View(thisCraftCourse);
+            }
+        [HttpPost]
+            public ActionResult Edit(CraftCourse craftCourse)
+            {
+                _db.CraftCourses.Update(craftCourse);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
     }
 }
