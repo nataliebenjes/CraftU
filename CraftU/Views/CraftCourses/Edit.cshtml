@@ -1,5 +1,5 @@
 @{
-    Layout = "_Layout"
+    Layout = "_Layout";
 }
 
 @model CraftU.Models.CraftCourse
@@ -12,10 +12,10 @@
 {
     @Html.HiddenFor(model => model.CraftCourseId)
 
-    @Html.LableFor(model => model.CourseName)
+    @Html.LabelFor(model => model.CourseName)
     @Html.EditorFor(model => model.CourseName)
 
-    @Html.LableFor(model => model.CourseDate)
+    @Html.LabelFor(model => model.CourseDate)
     @Html.EditorFor(model => model.CourseDate)
 
     <input type="submit" value="Save" />

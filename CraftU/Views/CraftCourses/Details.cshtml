@@ -17,6 +17,8 @@
 else
 {
     <h4>Supply list</h4>
+
+
     <ul>
         @foreach(Supply supply in Model.Supplies)
         {
@@ -27,9 +29,14 @@ else
             }
             else
             {
-                List<string> joinList = new List<string>();
+            List<string> joinList = new List<string>();
+            @foreach (CraftCourseSupply join in supply.JoinEntities)
+            {
+                joinList.Add(join.Supply.SupplyName);
             }
             supplies = String.Join(", ", joinList);
+            }
+            <li>@supply.SupplyName </li>
 
         }
         </ul>

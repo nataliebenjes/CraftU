@@ -42,7 +42,7 @@ namespace CraftU.Controllers
         }
          public ActionResult Edit(int id)
             {
-                CraftCourse thisCraftCourse = _db.CraftCourses.FirstOrDefault(craftCourse.CraftCourseId == id);
+                CraftCourse thisCraftCourse = _db.CraftCourses.FirstOrDefault(craftCourse => craftCourse.CraftCourseId == id);
                 return View(thisCraftCourse);
             }
         [HttpPost]
@@ -52,5 +52,18 @@ namespace CraftU.Controllers
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
+        public ActionResult Delete(int id)
+        {
+            CraftCourse thisCraftCourse = _db.CraftCourse.FirstOrDefault(craftcourse => craftcourse.CraftCourseId == id);
+            return View(thisCraftCourse);
+        }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            CraftCourse this CraftCourse = _db.CraftCourse.FirstOrDefault(craftCourse => craftCourse.CraftCourseId == id);
+            _db.CraftCourse.Remove(thisCraftCourse);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

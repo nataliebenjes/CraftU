@@ -3,6 +3,7 @@ using System;
 using CraftU.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CraftU.Migrations
 {
     [DbContext(typeof(CraftUContext))]
-    partial class CraftUContextModelSnapshot : ModelSnapshot
+    [Migration("20230802230437_AddJoinTables")]
+    partial class AddJoinTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
